@@ -7,7 +7,7 @@ export default () => {
   let expectedAnswer; // ожидаемый ответ
   let receivedAnswer; // полученный ответ
   
-  // функция для поиска рандомного числа
+  // поиск рандомного числа
   const getRandomNumber = () => { 
     return Math.floor(Math.random() * maxNumber);
   };
@@ -35,8 +35,8 @@ export default () => {
     receivedAnswer = readlineSync.question('Your answer: ');
     if (receivedAnswer === expectedAnswer) {
       console.log(`Correct!`);
-      if (i === 3) {
-        console.log(`Congratulations, ${userName}!`);
+      if (i === roundsNumber) {
+        console.log(`Congratulations, ${userName}!`); // дано предельное количество верных ответов заканчиваем игру
       };
     } else {
       console.log(`'${receivedAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.\nLet's try again, ${userName}!`);
