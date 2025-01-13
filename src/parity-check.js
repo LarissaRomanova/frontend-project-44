@@ -40,7 +40,7 @@ export default () => {
       };
     } else {
       console.log(`'${receivedAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.\nLet's try again, ${userName}!`);
-      i = 3; // ответ неверный - заканчиваем игру
+      i = roundsNumber; // ответ неверный - заканчиваем игру
     };
   };
 };
