@@ -5,7 +5,8 @@
   "description": "[![Actions Status](https://github.com/LarissaRomanova/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/LarissaRomanova/frontend-project-44/actions)",
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js"
   },
   "main": "index.js",
   "scripts": {
@@ -28,6 +29,7 @@
     "@eslint/create-config": "^1.0.0",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.17.0",
+    "@types/readline-sync": "^1.4.8",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.31.0",
