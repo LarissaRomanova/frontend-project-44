@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 const roundsNumber = 3; // количество раундов
-let userName;  
+let userName;
 
 // приветсвие, знакомство
 const getGreeting = () => {
@@ -10,10 +10,10 @@ const getGreeting = () => {
   console.log(`Hello, ${userName}!`);
 };
 
-  // поиск рандомного числа
-const getRandomNumber = (maxNumber) => { 
+// поиск рандомного числа
+const getRandomNumber = (maxNumber) => {
   return Math.floor(Math.random() * maxNumber);
-};
+}
 
 // логика реакции на ответы игрока
 const getAnswer = (expectedAnswer, i) => {
@@ -25,10 +25,10 @@ const getAnswer = (expectedAnswer, i) => {
   if (receivedAnswer === expectedAnswer && i === roundsNumber) {
     console.log(`Correct!\nCongratulations, ${userName}!`); // дано предельное количество верных ответов заканчиваем игру
     return true;
-  } 
+  }
   if (receivedAnswer !== expectedAnswer) {
     console.log(`'${receivedAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.\nLet's try again, ${userName}!`);
     return false;
   }
 };
-export { roundsNumber, getGreeting , getRandomNumber, getAnswer };
+export { roundsNumber, getGreeting, getRandomNumber, getAnswer };
