@@ -1,8 +1,8 @@
 import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
 
 export default () => {
-  const maxNumber1 = 100; // обозначаем предел для выборки первого числа
-  const maxNumber2 = 100; // обозначаем предел для выборки второго числа
+  const minNumber = 1; // обозначаем предел для выборки чисел
+  const maxNumber = 100;
 
   let expectedAnswer; // ожидаемый ответ
 
@@ -17,8 +17,8 @@ export default () => {
 
   // задаем вопрос и определяем какой ответ ожидаем получить
   const getRound = () => {
-    const randomNumber1 = getRandomNumber(maxNumber1);
-    const randomNumber2 = getRandomNumber(maxNumber2);
+    const randomNumber1 = getRandomNumber(minNumber, maxNumber);
+    const randomNumber2 = getRandomNumber(minNumber, maxNumber);
 
     console.log('Question: ' + randomNumber1 + ' ' + randomNumber2);
     expectedAnswer = answer(randomNumber1, randomNumber2);
@@ -31,6 +31,6 @@ export default () => {
     const isCorrectAnswer = getAnswer(expectedAnswer, i);
     if (!isCorrectAnswer) {
       return;
-    };
+    }
   }
 };

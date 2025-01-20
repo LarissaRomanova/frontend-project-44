@@ -1,10 +1,10 @@
 import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
 
 export default () => {
-  const maxNumber1 = 25; // обозначаем предел для выборки первого операнда
-  const maxNumber2 = 10; // обозначаем предел для выборки второго операнда
+  const mixNumber = 10; // обозначаем минимальный предел для выборки операнда
+  const maxNumber = 25; // обозначаем максимальный предел для выборки операнда
   const operators = ['+' , '-' , '*' ]; // используемые операторы
-  
+
   let expectedAnswer; // ожидаемый ответ
 
   // расчеты, исходя из выбранного оператора
@@ -23,10 +23,10 @@ export default () => {
 
   // задаем вопрос и определяем какой ответ ожидаем получить
   const getRound = () => {
-    let randomNumber1 = getRandomNumber(maxNumber1);
-    let randomNumber2 = getRandomNumber(maxNumber2);
-    let randomOperatorIndex = getRandomNumber(operators.length);
-    
+    let randomNumber1 = getRandomNumber(mixNumber, maxNumber);
+    let randomNumber2 = getRandomNumber(mixNumber, maxNumber);
+    let randomOperatorIndex = getRandomNumber(0, operators.length);
+
     console.log('Question: ' + randomNumber1 + operators[randomOperatorIndex] + randomNumber2);
     expectedAnswer = answer(randomNumber1, randomNumber2, operators[randomOperatorIndex]);
   };
