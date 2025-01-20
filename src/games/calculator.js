@@ -1,7 +1,9 @@
-import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
+import {
+  roundsNumber, getGreeting, getRandomNumber, getAnswer,
+} from '../index.js';
 
 export default () => {
-  const mixNumber = 10; // обозначаем минимальный предел для выборки операнда
+  const minNumber = 10; // обозначаем минимальный предел для выборки операнда
   const maxNumber = 25; // обозначаем максимальный предел для выборки операнда
   const operators = ['+', '-', '*']; // используемые операторы
 
@@ -23,8 +25,8 @@ export default () => {
 
   // задаем вопрос и определяем какой ответ ожидаем получить
   const getRound = () => {
-    const randomNumber1 = getRandomNumber(mixNumber, maxNumber);
-    const randomNumber2 = getRandomNumber(mixNumber, maxNumber);
+    const randomNumber1 = getRandomNumber(minNumber, maxNumber);
+    const randomNumber2 = getRandomNumber(minNumber, maxNumber);
     const randomOperatorIndex = getRandomNumber(0, operators.length);
 
     console.log(`Question: ${randomNumber1} ${operators[randomOperatorIndex]} ${randomNumber2}`);

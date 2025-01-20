@@ -1,5 +1,6 @@
-import readlineSync from 'readline-sync';
-import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
+import {
+  roundsNumber, getGreeting, getRandomNumber, getAnswer,
+} from '../index.js';
 
 export default () => {
   const minNumber = 1;

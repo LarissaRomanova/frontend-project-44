@@ -1,4 +1,6 @@
-import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
+import {
+  roundsNumber, getGreeting, getRandomNumber, getAnswer,
+} from '../index.js';
 
 export default () => {
   const minNumber = 1; // обозначаем предел для выборки чисел

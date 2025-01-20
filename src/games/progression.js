@@ -1,19 +1,21 @@
-import { roundsNumber, getGreeting, getRandomNumber, getAnswer } from '../index.js';
+import {
+  roundsNumber, getGreeting, getRandomNumber, getAnswer,
+} from '../index.js';
 
 export default () => {
   const minProgressionLength = 5; // обозначаем длину прогрессии
   const maxProgressionLength = 10;
   const minProgressionStep = 1;
   const maxProgressionStep = 10;
-  const minFirstProgressionElement = 1;
-  const maxFirstProgressionElement = 10;
+  const minFirstElement = 1;
+  const maxFirstElement = 10;
   let expectedAnswer; // ожидаемый ответ
 
   // задаем вопрос и определяем какой ответ ожидаем получить
   const getRound = () => {
     const hiddenElementIndex = getRandomNumber(minProgressionLength, maxProgressionLength);
     const progressionStep = getRandomNumber(minProgressionStep, maxProgressionStep);
-    const firstProgressionElement = getRandomNumber(minFirstProgressionElement, maxFirstProgressionElement);
+    const firstProgressionElement = getRandomNumber(minFirstElement, maxFirstElement);
     const progression = [];
     let hiddenElement;
 
