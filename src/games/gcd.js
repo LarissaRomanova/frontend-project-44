@@ -29,6 +29,8 @@ export default () => {
   for (let i = 1; i <= roundsNumber; i += 1) {
     getRound();
     const isCorrectAnswer = getAnswer(expectedAnswer, i);
-    if (!isCorrectAnswer) return;
+    if (!isCorrectAnswer) {
+      return;
+    };
   }
 };

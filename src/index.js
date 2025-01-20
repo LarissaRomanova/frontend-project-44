@@ -11,10 +11,10 @@ const getGreeting = () => {
 };
 
 // поиск рандомного числа
-const getRandomNumber = (maxNumber) => {
-  return Math.floor(Math.random() * maxNumber);
+const getRandomNumber = (minNumber, maxNumber) => {
+  const randomNumber = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
+  return randomNumber;
 }
-
 // логика реакции на ответы игрока
 const getAnswer = (expectedAnswer, i) => {
   let receivedAnswer = readlineSync.question('Your answer: '); // запрашиваем у игрока ответ
