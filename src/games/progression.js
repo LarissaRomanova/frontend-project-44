@@ -14,19 +14,19 @@ export default () => {
     const hiddenElementIndex = getRandomNumber(minProgressionLength, maxProgressionLength);
     const progressionStep = getRandomNumber(minProgressionStep, maxProgressionStep);
     const firstProgressionElement = getRandomNumber(minFirstProgressionElement, maxFirstProgressionElement);
-    const Progression = [];
+    const progression = [];
     let hiddenElement;
 
     for (let i = 0; i < maxProgressionLength; i += 1) {
       const nextProgressionElement = firstProgressionElement + i * progressionStep;
       if (i === hiddenElementIndex) {
         hiddenElement = nextProgressionElement;
-        Progression.push('..');
+        progression.push('..');
       } else {
-        Progression.push(nextProgressionElement);
+        progression.push(nextProgressionElement);
       }
     }
-    console.log(`Question: ${Progression}`);
+    console.log(`Question: ${progression.join(' ')}`);
     expectedAnswer = String(hiddenElement);
     return expectedAnswer;
   };
