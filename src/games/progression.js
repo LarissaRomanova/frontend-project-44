@@ -26,7 +26,7 @@ export default () => {
         Progression.push(nextProgressionElement);
       }
     }
-    console.log('Question: ' + Progression);
+    console.log(`Question: ${Progression}`);
     expectedAnswer = String(hiddenElement);
     return expectedAnswer;
   };

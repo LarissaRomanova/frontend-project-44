@@ -27,7 +27,7 @@ export default () => {
     const randomNumber2 = getRandomNumber(mixNumber, maxNumber);
     const randomOperatorIndex = getRandomNumber(0, operators.length);
 
-    console.log('Question: ', randomNumber1, operators[randomOperatorIndex], randomNumber2);
+    console.log(`Question: ${randomNumber1} ${operators[randomOperatorIndex]} ${randomNumber2}`);
     expectedAnswer = answer(randomNumber1, randomNumber2, operators[randomOperatorIndex]);
   };
 

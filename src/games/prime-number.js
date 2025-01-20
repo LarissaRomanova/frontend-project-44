@@ -18,7 +18,7 @@ export default () => {
   const getRound = () => {
     const randomNumber = getRandomNumber(minNumber, maxNumber);
 
-    console.log('Question: ' + randomNumber);
+    console.log(`Question: ${randomNumber}`);
     expectedAnswer = answer(randomNumber);
   };
 

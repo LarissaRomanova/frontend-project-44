@@ -20,7 +20,7 @@ export default () => {
     const randomNumber1 = getRandomNumber(minNumber, maxNumber);
     const randomNumber2 = getRandomNumber(minNumber, maxNumber);
 
-    console.log('Question: ' + randomNumber1 + ' ' + randomNumber2);
+    console.log(`Question: ${randomNumber1} ${randomNumber2}`);
     expectedAnswer = answer(randomNumber1, randomNumber2);
   };
 
