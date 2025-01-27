@@ -1,45 +1,35 @@
-import {
-  roundsNumber, getGreeting, getRandomNumber, getAnswer,
-} from '../index.js';
+import getRandomNumber from '../random.js';
+import playBrainGame from '../index.js';
 
-export default () => {
-  const minProgressionLength = 5; // обозначаем длину прогрессии
-  const maxProgressionLength = 10;
-  const minProgressionStep = 1;
-  const maxProgressionStep = 10;
-  const minFirstElement = 1;
-  const maxFirstElement = 10;
-  let expectedAnswer; // ожидаемый ответ
+const gameQuestion = 'What number is missing in the progression?';
 
-  // задаем вопрос и определяем какой ответ ожидаем получить
-  const getRound = () => {
-    const hiddenElementIndex = getRandomNumber(minProgressionLength, maxProgressionLength);
-    const progressionStep = getRandomNumber(minProgressionStep, maxProgressionStep);
-    const firstProgressionElement = getRandomNumber(minFirstElement, maxFirstElement);
-    const progression = [];
-    let hiddenElement;
+const getProgression = (firstElement, step, maxLength, hiddenElementIndex) => {
+  const progression = [];
 
-    for (let i = 0; i < maxProgressionLength; i += 1) {
-      const nextProgressionElement = firstProgressionElement + i * progressionStep;
-      if (i === hiddenElementIndex) {
-        hiddenElement = nextProgressionElement;
-        progression.push('..');
-      } else {
-        progression.push(nextProgressionElement);
-      }
-    }
-    console.log(`Question: ${progression.join(' ')}`);
-    expectedAnswer = String(hiddenElement);
-    return expectedAnswer;
-  };
-
-  getGreeting();
-  console.log('What number is missing in the progression?');
-  for (let i = 1; i <= roundsNumber; i += 1) {
-    getRound();
-    const isCorrectAnswer = getAnswer(expectedAnswer, i);
-    if (isCorrectAnswer === false) {
-      return;
+  for (let i = 0; i < maxLength; i += 1) {
+    const nextProgressionElement = firstElement + i * step;
+    if (i === hiddenElementIndex) {
+      progression.push('..');
+    } else {
+      progression.push(nextProgressionElement);
     }
   }
+  return progression.join(' ');
 };
+
+const getRound = () => {
+  const minProgLength = 5; // обозначаем длину прогрессии
+  const maxProgLength = 10;
+
+  const step = getRandomNumber();
+  const firstElement = getRandomNumber();
+  const progLength = getRandomNumber(minProgLength, maxProgLength);
+  const hiddenElementIndex = getRandomNumber(0, progLength);
+
+  const question = getProgression(firstElement, step, progLength, hiddenElementIndex);
+  const expectedAnswer = String(firstElement + step * hiddenElementIndex);
+  return [question, expectedAnswer];
+};
+
+const progressionGame = () => playBrainGame(gameQuestion, getRound);
+export default progressionGame;

@@ -1,29 +1,22 @@
-import {
-  roundsNumber, getGreeting, getRandomNumber, getAnswer,
-} from '../index.js';
+import getRandomNumber from '../random.js';
+import playBrainGame from '../index.js';
 
-export default () => {
-  const minNumber = 1;
-  const maxNumber = 100; // обозначаем предел для выборки произвольного числа
-  let expectedAnswer; // ожидаемый ответ
+const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  // задаем вопрос и определяем какой ответ ожидаем получить
-  const getRound = () => {
-    const randomNumber = getRandomNumber(minNumber, maxNumber);
-    console.log(`Question: ${randomNumber}`);
-    if (randomNumber % 2 === 0) {
-      expectedAnswer = 'yes';
-    } else {
-      expectedAnswer = 'no';
-    }
-  };
-
-  // приветсвуем, знакомимся, описываем правила игры
-  getGreeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 1; i <= roundsNumber; i += 1) {
-    getRound();
-    const isCorrectAnswer = getAnswer(expectedAnswer, i);
-    if (!isCorrectAnswer) return;
+const getCalculation = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
   }
+  return 'no';
 };
+
+const getRound = () => {
+  const randomNum = getRandomNumber();
+
+  const question = `${randomNum}`;
+  const expectedAnswer = getCalculation(randomNum);
+  return [question, expectedAnswer];
+};
+
+const parityCheckGame = () => playBrainGame(gameQuestion, getRound);
+export default parityCheckGame;

@@ -1,43 +1,31 @@
-import {
-  roundsNumber, getGreeting, getRandomNumber, getAnswer,
-} from '../index.js';
+import getRandomNumber from '../random.js';
+import playBrainGame from '../index.js';
 
-export default () => {
-  const minNumber = 10; // обозначаем минимальный предел для выборки операнда
-  const maxNumber = 25; // обозначаем максимальный предел для выборки операнда
-  const operators = ['+', '-', '*']; // используемые операторы
+const gameQuestion = 'What is the result of the expression?';
+const operators = ['+', '-', '*'];
 
-  let expectedAnswer; // ожидаемый ответ
-
-  // расчеты, исходя из выбранного оператора
-  const answer = (number1, number2, operator) => {
-    switch (operator) {
-      case '+':
-        return String(number1 + number2);
-      case '-':
-        return String(number1 - number2);
-      case '*':
-        return String(number1 * number2);
-      default:
-        return null;
-    }
-  };
-
-  // задаем вопрос и определяем какой ответ ожидаем получить
-  const getRound = () => {
-    const randomNumber1 = getRandomNumber(minNumber, maxNumber);
-    const randomNumber2 = getRandomNumber(minNumber, maxNumber);
-    const randomOperatorIndex = getRandomNumber(0, operators.length);
-
-    console.log(`Question: ${randomNumber1} ${operators[randomOperatorIndex]} ${randomNumber2}`);
-    expectedAnswer = answer(randomNumber1, randomNumber2, operators[randomOperatorIndex]);
-  };
-
-  getGreeting();
-  console.log('What is the result of the expression?');
-  for (let i = 1; i <= roundsNumber; i += 1) {
-    getRound();
-    const isCorrectAnswer = getAnswer(expectedAnswer, i);
-    if (!isCorrectAnswer) return;
+const getCalculation = (number1, number2, operator) => {
+  switch (operator) {
+    case '+':
+      return String(number1 + number2);
+    case '-':
+      return String(number1 - number2);
+    case '*':
+      return String(number1 * number2);
+    default:
+      return 'Error! Unknown operator!';
   }
 };
+
+const getRound = () => {
+  const randomNum1 = getRandomNumber();
+  const randomNum2 = getRandomNumber();
+  const randomOperatorIndex = getRandomNumber(0, operators.length);
+
+  const question = `${randomNum1} ${operators[randomOperatorIndex]} ${randomNum2}`;
+  const expectedAnswer = getCalculation(randomNum1, randomNum2, operators[randomOperatorIndex]);
+  return [question, expectedAnswer];
+};
+
+const calculatorGame = () => playBrainGame(gameQuestion, getRound);
+export default calculatorGame;
