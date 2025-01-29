@@ -7,23 +7,23 @@ const operators = ['+', '-', '*'];
 const getCalculation = (number1, number2, operator) => {
   switch (operator) {
     case '+':
-      return String(number1 + number2);
+      return (number1 + number2);
     case '-':
-      return String(number1 - number2);
+      return (number1 - number2);
     case '*':
-      return String(number1 * number2);
+      return (number1 * number2);
     default:
-      return 'Error! Unknown operator!';
+      return `Error! ${operator} is unknown operator!`;
   }
 };
 
 const getRound = () => {
-  const randomNum1 = getRandomNumber();
-  const randomNum2 = getRandomNumber();
-  const randomOperatorIndex = getRandomNumber(0, operators.length);
+  const number1 = getRandomNumber();
+  const number2 = getRandomNumber();
+  const operatorIndex = getRandomNumber(0, operators.length);
 
-  const question = `${randomNum1} ${operators[randomOperatorIndex]} ${randomNum2}`;
-  const expectedAnswer = getCalculation(randomNum1, randomNum2, operators[randomOperatorIndex]);
+  const question = `${number1} ${operators[operatorIndex]} ${number2}`;
+  const expectedAnswer = String(getCalculation(number1, number2, operators[operatorIndex]));
   return [question, expectedAnswer];
 };
 

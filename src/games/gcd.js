@@ -3,12 +3,12 @@ import playBrainGame from '../index.js';
 
 const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
-const getCalculation = (number1, number2) => {
+const getGCD = (number1, number2) => {
   if (number2 !== 0) {
     const gcd = number1 % number2;
-    return getCalculation(number2, gcd);
+    return getGCD(number2, gcd);
   }
-  return String(number1);
+  return number1;
 };
 
 const getRound = () => {
@@ -16,7 +16,7 @@ const getRound = () => {
   const randomNum2 = getRandomNumber();
 
   const question = `${randomNum1} ${randomNum2}`;
-  const expectedAnswer = getCalculation(randomNum1, randomNum2);
+  const expectedAnswer = String(getGCD(randomNum1, randomNum2));
   return [question, expectedAnswer];
 };
 
