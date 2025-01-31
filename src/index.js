@@ -6,8 +6,8 @@ const playBrainGame = (gameQuestion, getRound) => {
   console.log(`Hello, ${userName}!`);
   console.log(gameQuestion);
 
-  const ROUNDS_NUMBER = 3;
-  for (let i = 1; i <= ROUNDS_NUMBER; i += 1) {
+  const AMOUNT_ROUNDS = 3;
+  for (let i = 1; i <= AMOUNT_ROUNDS; i += 1) {
     const [question, expectedAnswer] = getRound();
     console.log(`Question: ${question}`);
     const receivedAnswer = readlineSync.question('Your answer: ');
